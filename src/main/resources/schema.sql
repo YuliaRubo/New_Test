@@ -26,4 +26,4 @@ user_id int,
 chat_id int,
 foreign key (user_id) references users(id),
 foreign key (chat_id) references chat(id)
-);
+)
