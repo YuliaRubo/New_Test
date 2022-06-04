@@ -1,6 +1,8 @@
 package com.example.test1.dto;
 
-import com.sun.jmx.snmp.Timestamp;
+import java.sql.Timestamp;
+
+import java.util.List;
 
 public class Users {
 

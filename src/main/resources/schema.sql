@@ -14,8 +14,8 @@ create table chat_user(
 userId int,
 chatId int,
 primary key(userId, chatId),
-foreign key (userId) references users(id),
-foreign key (chatId) references chat(id)
+foreign key (userId) references users(userId),
+foreign key (chatId) references chat(chatId)
 );
 
 create table message(
@@ -24,6 +24,6 @@ text varchar(255) NOT NULL,
 created_at timestamp,
 user_id int,
 chat_id int,
-foreign key (user_id) references users(id),
-foreign key (chat_id) references chat(id)
+foreign key (user_id) references users(userId),
+foreign key (chat_id) references chat(chatId)
 )
