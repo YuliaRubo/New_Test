@@ -5,14 +5,14 @@ import java.util.List;
 
 public class Chat {
 
-    private int id;
+    private int chatId;
     private String userName;
     private Timestamp createdAt;
 
     List<Users> usersList;
 
     public Chat(int id, String userName, Timestamp createdAt, List<Users> usersList) {
-        this.id = id;
+        this.chatId = id;
         this.userName = userName;
         this.createdAt = createdAt;
         this.usersList = usersList;
@@ -22,11 +22,11 @@ public class Chat {
     }
 
     public int getId() {
-        return id;
+        return chatId;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.chatId = id;
     }
 
     public String getUserName() {
@@ -56,7 +56,7 @@ public class Chat {
     @Override
     public String toString() {
         return "Chat{" +
-                "id=" + id +
+                "id=" + chatId +
                 ", userName='" + userName + '\'' +
                 ", createdAt=" + createdAt +
                 ", usersList=" + usersList +

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Users {
 
-    private int id;
+    private int userId;
     private String userName;
     private Timestamp createdAt;
 
@@ -17,18 +17,18 @@ public class Users {
     }
 
     public Users(int id, String userName, Timestamp createdAt, List<Chat> chatList) {
-        this.id = id;
+        this.userId = id;
         this.userName = userName;
         this.createdAt = createdAt;
         this.chatList = chatList;
     }
 
     public int getId() {
-        return id;
+        return userId;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.userId = id;
     }
 
     public String getUserName() {
@@ -58,7 +58,7 @@ public class Users {
     @Override
     public String toString() {
         return "Users{" +
-                "id=" + id +
+                "id=" + userId +
                 ", userName='" + userName + '\'' +
                 ", createdAt=" + createdAt +
                 ", chatList=" + chatList +
