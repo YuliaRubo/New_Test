@@ -1,13 +1,13 @@
 create table users(
 userId int  primary key auto_increment,
 username varchar(30) NOT NULL,
-created_at timestamp
+created_at timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 create table chat(
 chatId int  primary key auto_increment,
 namechat varchar(30) NOT NULL,
-created_at timestamp
+created_at timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 create table chat_user(
