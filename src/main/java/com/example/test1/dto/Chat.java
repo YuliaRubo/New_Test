@@ -32,6 +32,10 @@ public class Chat {
     public Chat() {
     }
 
+    public Chat(String chatName) {
+        this.chatName = chatName;
+    }
+
     public void addUsersIntoChat(Users user) {
         if(user==null){
        listUser = new ArrayList<>();
@@ -39,7 +43,7 @@ public class Chat {
         listUser.add(user);
     }
 
-    public void addUserMessage(Message message){
+    public void addUserToMessage(Message message){
         if(message==null){
             messages = new ArrayList<>();
         }
