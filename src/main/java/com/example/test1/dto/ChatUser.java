@@ -2,6 +2,8 @@ package com.example.test1.dto;
 
 public class ChatUser {
 
+
+
     private Users users;
     private Chat chat;
 
