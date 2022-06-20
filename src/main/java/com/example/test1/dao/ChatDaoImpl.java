@@ -1,8 +1,8 @@
 package com.example.test1.dao;
 
 import com.example.test1.dto.Chat;
-import com.example.test1.dto.Users;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -15,14 +15,19 @@ import java.util.Map;
 public class ChatDaoImpl implements ChatDao{
 
 
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+    NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     @Autowired
     public ChatDaoImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
 
     private final String CHAT_ADD =  "INSERT INTO CHAT(name_chat) VALUES(:name_chat)";
-    //private final String CHAT_WITH_USERS = "SELECT * FROM USERS WHERE ";
+    private  final String GET_ALL_CHATS = "SELECT  NAME_CHAT FROM CHAT";
+    private final String GET_ALL_CHATS_FROM_USERS = "";
+    private final  String DELETE_CHAT = "DELETE from CHAT where chatId = :chatId";
+    private final  String GET_CHATS_BY_ID = "select NAME_CHAT   from CHAT where chatId =:chatId";
+
 
 
     @Override
@@ -33,9 +38,26 @@ public class ChatDaoImpl implements ChatDao{
     }
 
     @Override
-    public List<Users> getAllUsersFromJneChat(int chatId) {
+    public List<Chat> getAllChats() {
+        return namedParameterJdbcTemplate.queryForList(GET_ALL_CHATS, );
+    }
+
+    @Override
+    public List<Chat> getAllChatsFromUser(int userId) {
         return null;
     }
+
+    @Override
+    public void deleteChat(int id) {
+           return namedParameterJdbcTemplate.update(DELETE_CHAT, id);
+    }
+
+    @Override
+    public Chat getChatById(int chatId) {
+        return null;
+    }
+
+
 
 
 }
