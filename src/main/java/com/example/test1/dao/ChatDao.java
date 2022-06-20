@@ -9,5 +9,12 @@ public interface ChatDao {
 
     int saveChat(Chat chat);
 
-    List<Users> getAllUsersFromJneChat(int chatId);
+    public List<Chat> getAllChats();
+
+    public List<Chat> getAllChatsFromUser(int userId);
+
+    void deleteChat(int id);
+
+    Chat getChatById(int chatId);
 }
+
