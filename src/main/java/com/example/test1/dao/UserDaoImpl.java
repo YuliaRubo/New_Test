@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -40,9 +40,14 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<Users> getAllUsersFromUsers() {
+    public List<Users> getAllUserFromUsers() {
         return namedParameterJdbcTemplate.query("GET_ALL_USERS", new UserRowMapper());
     }
+
+    public void addUsersIntoChat(Users user) {
+        List<Users> chat = new ArrayList<>();
+        chat.add(user);
+   }
 
 
 
