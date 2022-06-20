@@ -48,6 +48,8 @@ public class Chat {
             messages = new ArrayList<>();
         }
             messages.add(message);
+
+
         }
 
 
