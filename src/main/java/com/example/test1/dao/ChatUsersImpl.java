@@ -1,9 +1,13 @@
 package com.example.test1.dao;
 
+import com.example.test1.dto.Chat;
+import com.example.test1.dto.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ChatUsersImpl implements ChatUsers{
@@ -18,10 +22,10 @@ private final String ADD_NEW_USERS = "INSERT INTO CHAT_USER (userId, chatId) VAL
 
 
     @Override
-    public int addUsersIntoChat(int userId, int chatId) {
 
-        return namedParameterJdbcTemplate.query(ADD_NEW_USERS, );
 
 
     }
-}
+
+    }
+
