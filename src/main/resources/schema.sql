@@ -6,7 +6,7 @@ created_at timestamp DEFAULT CURRENT_TIMESTAMP
 
 create table chat(
 chatId int  primary key auto_increment,
-namechat varchar(30) NOT NULL,
+name_chat varchar(30) NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
