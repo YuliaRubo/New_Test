@@ -1,37 +1,67 @@
 package com.example.test1.dao;
 
-import com.example.test1.dto.Chat;
 import com.example.test1.dto.Users;
 import com.example.test1.rowMapper.UserRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.EmptySqlParameterSource;
+import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 @Repository
 public class UserDaoImpl implements UserDao {
 
 
    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-
-  private  String ADD_USER= "INSERT INTO USERS(userName) VALUES(:userName)";
-
-    @Override
-    public Users addNewUser(Users user) {
-        Map<String,Object> params = new HashMap<>();
-        params.put("userName", user.getUserName());
-        //params.put("createdAt", user.getCreatedAt());
-
-        namedParameterJdbcTemplate.update(ADD_USER, params);
-        return user;
+    @Autowired
+    public UserDaoImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
 
+
+    private   final String ADD_USER = "INSERT INTO USERS(username) VALUES(:username)";
+    private final  String GET_USER_BY_ID = "SELECT * FROM users WHERE userId=:useId";
+    private final String GET_ALL_USERS = "SELECT * FROM USERS";
+
+   @Override
+    public int save(Users user) {
+       Map<String, Object> params = new HashMap<>();
+       params.put("username", user.getUserName());
+       return namedParameterJdbcTemplate.update(ADD_USER, params);
+   }
+
     @Override
-    public Chat createNewChat(Chat chat) {
+    public User getUserById(int userId) {
         return null;
     }
+
+    @Override
+    public List<Users> getAllUsersFromUsers() {
+        return namedParameterJdbcTemplate.query("GET_ALL_USERS", new UserRowMapper());
+    }
+
+
+
+    //public Users getUserById(int userId) {
+       // Map<String,Object> params = new HashMap<>();
+      //  params.put("userId", userId);
+      //  return  namedParameterJdbcTemplate.queryForObject("GET_USER_BY_ID", params, new UserRowMapper());
+      //    }
+
+
+
+
+//        Map<String,Object> params = new HashMap<>();
+//        params.put("userName", user.getUserName());
+//        //params.put("createdAt", user.getCreatedAt());
+//
+//        //namedParameterJdbcTemplate.update(ADD_USER, params);
+//        return ;
+
+
+
 }
