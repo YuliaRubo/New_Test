@@ -21,11 +21,10 @@ public class ChatUsersImpl implements ChatUsers{
 private final String ADD_NEW_USERS = "INSERT INTO CHAT_USER (userId, chatId) VALUES (:userId, :chatId)";
 
 
-    @Override
 
 
 
     }
 
-    }
+
 

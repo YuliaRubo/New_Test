@@ -35,14 +35,16 @@ public class UserDaoImpl implements UserDao {
    }
 
     @Override
-    public User getUserById(int userId) {
+    public List<Users> getAllUsersFromUsers() {
         return null;
     }
 
     @Override
-    public List<Users> getAllUserFromUsers() {
-        return namedParameterJdbcTemplate.query("GET_ALL_USERS", new UserRowMapper());
+    public User getUserById(int userId) {
+        return null;
     }
+
+
 
     public void addUsersIntoChat(Users user) {
         List<Users> chat = new ArrayList<>();
