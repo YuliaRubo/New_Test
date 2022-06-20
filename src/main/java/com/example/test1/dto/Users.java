@@ -1,8 +1,8 @@
 package com.example.test1.dto;
 
-import java.sql.Timestamp;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
-import java.util.List;
+import java.sql.Timestamp;
 
 public class Users {
 
@@ -10,25 +10,27 @@ public class Users {
     private String userName;
     private Timestamp createdAt;
 
-    List<Chat> chatList;
+
 
 
     public Users() {
     }
 
-    public Users(int id, String userName, Timestamp createdAt, List<Chat> chatList) {
-        this.userId = id;
+
+    public Users(int userId, String userName, Timestamp createdAt) {
+        this.userId = userId;
         this.userName = userName;
         this.createdAt = createdAt;
-        this.chatList = chatList;
     }
 
-    public int getId() {
+
+
+    public int getUserId() {
         return userId;
     }
 
-    public void setId(int id) {
-        this.userId = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {
@@ -47,21 +49,12 @@ public class Users {
         this.createdAt = createdAt;
     }
 
-    public List<Chat> getChatList() {
-        return chatList;
-    }
-
-    public void setChatList(List<Chat> chatList) {
-        this.chatList = chatList;
-    }
-
     @Override
     public String toString() {
         return "Users{" +
-                "id=" + userId +
+                "userId=" + userId +
                 ", userName='" + userName + '\'' +
                 ", createdAt=" + createdAt +
-                ", chatList=" + chatList +
                 '}';
     }
 }
