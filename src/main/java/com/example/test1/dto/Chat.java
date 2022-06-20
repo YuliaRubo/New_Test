@@ -3,38 +3,54 @@ package com.example.test1.dto;
 import java.sql.Timestamp;
 import java.util.List;
 
+
 public class Chat {
 
     private int chatId;
-    private String userName;
+    private String chatName;
     private Timestamp createdAt;
+    private List<Users> listUser;
 
-    List<Users> usersList;
-
-    public Chat(int id, String userName, Timestamp createdAt, List<Users> usersList) {
-        this.chatId = id;
-        this.userName = userName;
+    public Chat(int chatId, String chatName, Timestamp createdAt) {
+        this.chatId = chatId;
+        this.chatName = chatName;
         this.createdAt = createdAt;
-        this.usersList = usersList;
+    }
+
+    public Chat(int chatId, String chatName, Timestamp createdAt, List<Users> listUser) {
+        this.chatId = chatId;
+        this.chatName = chatName;
+        this.createdAt = createdAt;
+        this.listUser = listUser;
     }
 
     public Chat() {
     }
 
-    public int getId() {
+
+    public List<Users> getListUser() {
+        return listUser;
+    }
+
+    public void setListUser(List<Users> listUser) {
+        this.listUser = listUser;
+    }
+
+
+    public int getChatId() {
         return chatId;
     }
 
-    public void setId(int id) {
-        this.chatId = id;
+    public void setChatId(int chatId) {
+        this.chatId = chatId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getChatName() {
+        return chatName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setChatName(String chatName) {
+        this.chatName = chatName;
     }
 
     public Timestamp getCreatedAt() {
@@ -45,21 +61,13 @@ public class Chat {
         this.createdAt = createdAt;
     }
 
-    public List<Users> getUsersList() {
-        return usersList;
-    }
-
-    public void setUsersList(List<Users> usersList) {
-        this.usersList = usersList;
-    }
-
     @Override
     public String toString() {
         return "Chat{" +
-                "id=" + chatId +
-                ", userName='" + userName + '\'' +
+                "chatId=" + chatId +
+                ", chatName='" + chatName + '\'' +
                 ", createdAt=" + createdAt +
-                ", usersList=" + usersList +
+                ", listUser=" + listUser +
                 '}';
     }
 }
