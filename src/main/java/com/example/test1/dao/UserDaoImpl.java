@@ -46,10 +46,7 @@ public class UserDaoImpl implements UserDao {
 
 
 
-    public void addUsersIntoChat(Users user) {
-        List<Users> chat = new ArrayList<>();
-        chat.add(user);
-   }
+
 
 
 

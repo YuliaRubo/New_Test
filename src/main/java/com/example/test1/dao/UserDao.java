@@ -10,8 +10,8 @@ public interface UserDao {
     int save(Users user);
     List<Users> getAllUsersFromUsers();
     User getUserById(int userId);
-    void addUsersIntoChat(Users users);
-//    int createNewChat(Chat chat);
+
+
 
 
 }
